@@ -20,7 +20,7 @@ const Demo = self => {
     }
   }
   
-  return Object.assign(self.state, self.methods)
+  return Object.assign({}, self.state, self.methods)
 }
 
 const d = Demo({})
