@@ -7,15 +7,18 @@ const append = (list, data) => {
   return list
 }
 
+const appends = (list, data) => {
+  const last = {node: list}
+  data.forEach(e => last.node = append(list, e))
+  return last.node
+}
+
 const tail = node => {
   if (!node.next_node) return node
   return tail(node.next_node)
 }
 
 (() => {
-  const list = append(
-                 append(
-                   append(
-                     append(Node(), "ok"), "wow"), "nice"), "omg")
+  const list = appends(Node(), ["ok", "wow", "nice", "omg"])
   console.log(list)
 })()
